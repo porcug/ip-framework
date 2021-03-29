@@ -5,24 +5,15 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
-import android.widget.Adapter
-import android.widget.AdapterView
 import android.widget.ImageView
-import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.size
 import com.github.chrisbanes.photoview.PhotoView
 import com.university.ip.R
 import com.university.ip.model.Photo
 import com.university.ip.ui.main.MainActivity
-import com.university.ip.util.filters.Filter
-
-import com.university.ip.util.filters.FilterAdapter
-import com.university.ip.util.filters.Filters
 
 
-class ViewerActivity : AppCompatActivity(), ViewerContract.View, View.OnClickListener
-      {
+class ViewerActivity : AppCompatActivity(), ViewerContract.View, View.OnClickListener {
 
     override fun appContext(): Context = applicationContext
 
@@ -30,7 +21,6 @@ class ViewerActivity : AppCompatActivity(), ViewerContract.View, View.OnClickLis
     private lateinit var imageView: PhotoView
     private lateinit var backButton: ImageView
     private lateinit var photo: Photo
-
 
     /** Called when the activity is first created. */
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +30,6 @@ class ViewerActivity : AppCompatActivity(), ViewerContract.View, View.OnClickLis
         imageView = findViewById(R.id.image_viewer)
         backButton = findViewById(R.id.back_viewer)
         backButton.setOnClickListener(this)
-
 
         photo = Photo(
             name = intent.getStringExtra(PHOTO_NAME)!!,
@@ -63,8 +52,4 @@ class ViewerActivity : AppCompatActivity(), ViewerContract.View, View.OnClickLis
         const val PHOTO_PATH: String = "PHOTO_PATH"
         const val PHOTO_NAME: String = "PHOTO_NAME"
     }
-
-
-
-
 }

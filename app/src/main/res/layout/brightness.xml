@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/filter_border"
+    android:layout_margin="5dp"
+    android:padding="5sp">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Brighnest"
+        android:textSize="20dp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="3sp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Total" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_weight="1"
+                android:src="@drawable/brightness"
+                android:contentDescription="TODO" />
+
+            <SeekBar
+                android:id="@+id/seekBar_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="10"
+                android:max="400"
+                android:min="0"
+                android:progress="200" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="3sp">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Red" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_weight="1"
+                android:src="@drawable/brightness_red" />
+
+            <SeekBar
+                android:id="@+id/seekBar_red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="10"
+                android:max="400"
+                android:min="0"
+                android:progress="200" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="3sp">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Green" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_weight="1"
+                android:src="@drawable/brightness_green" />
+
+            <SeekBar
+                android:id="@+id/seekBar_green"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="10"
+                android:max="400"
+                android:min="0"
+                android:progress="200" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="3sp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Blue" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_weight="1"
+                android:src="@drawable/brightness_blue" />
+
+            <SeekBar
+                android:id="@+id/seekBar_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="10"
+                android:max="400"
+                android:min="0"
+                android:progress="200" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/reset_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Reset" />
+
+        <Button
+            android:id="@+id/apply_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Apply" />
+    </TableRow>
+
+</LinearLayout>

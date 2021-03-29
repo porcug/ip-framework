@@ -23,6 +23,7 @@
         android:name="android.hardware.camera.front.autofocus"
         android:required="false" />
 
+
     <application
         android:name=".IPApplication"
         android:allowBackup="true"
@@ -34,13 +35,11 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-        <activity android:name=".util.filters.ContrastBritness"></activity>
         <activity
             android:name=".ui.main.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -50,6 +49,7 @@
         <activity
             android:name=".ui.viewer.ViewerActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
     </application>
 
 </manifest>
