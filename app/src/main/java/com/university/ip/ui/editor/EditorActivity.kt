@@ -8,17 +8,22 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.size
 import com.university.ip.R
 import com.university.ip.ui.main.MainActivity
 import com.university.ip.util.files.FileSaver.Companion.IMAGE_MIME_TYPE
 import com.university.ip.util.files.FileSaverLegacy
+import com.university.ip.util.filters.Filter
+import com.university.ip.util.filters.FilterAdapter
+import com.university.ip.util.filters.Filters
 
 
-class EditorActivity : AppCompatActivity(), EditorContract.View, View.OnClickListener {
+class EditorActivity : AppCompatActivity(), EditorContract.View, View.OnClickListener ,AdapterView.OnItemClickListener {
     override fun appContext(): Context = applicationContext
 
     private lateinit var backButton: ImageView
@@ -27,6 +32,8 @@ class EditorActivity : AppCompatActivity(), EditorContract.View, View.OnClickLis
     private lateinit var filterList: ListView
     private lateinit var fileSaver: FileSaverLegacy
     private lateinit var bitmap: Bitmap
+
+    private lateinit var filter:List<Filter>
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
@@ -37,7 +44,13 @@ class EditorActivity : AppCompatActivity(), EditorContract.View, View.OnClickLis
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editor)
 
+
         filterList = findViewById(R.id.filters_list)
+
+        filter= Filters.Filters()
+
+        filterList.adapter= FilterAdapter(appContext(),filter);
+        filterList.onItemClickListener =this
 
         backButton = findViewById(R.id.back_editor)
         backButton.setOnClickListener(this)
@@ -107,8 +120,15 @@ class EditorActivity : AppCompatActivity(), EditorContract.View, View.OnClickLis
                 appContext().contentResolver.openOutputStream(uri)?.use { stream ->
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
                 }
+                finish()
                 startActivity(Intent(appContext(), MainActivity::class.java))
             }
+        }
+    }
+    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        if(parent?.size!=0) {
+            bitmap=filter[position].Launch(this,bitmap)
+            imageView.setImageBitmap(bitmap)
         }
     }
 }
